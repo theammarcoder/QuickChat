@@ -1,7 +1,30 @@
 import axios from 'axios';
 
+// Determine the base URL
+const getBaseURL = () => {
+  // If NEXT_PUBLIC_API_URL is set, use it
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  
+  // On the client side
+  if (typeof window !== 'undefined') {
+    // Use current origin (works on Vercel and localhost)
+    return window.location.origin;
+  }
+  
+  // On the server side (SSR)
+  // Check if running on Vercel
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  
+  // Fallback to localhost for development
+  return 'http://localhost:3000';
+};
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
+  baseURL: getBaseURL(),
   headers: {
     'Content-Type': 'application/json'
   }
