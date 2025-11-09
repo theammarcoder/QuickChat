@@ -1,0 +1,707 @@
+.adminContainer {
+  display: flex;
+  height: 100vh;
+  background: var(--background);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: var(--surface);
+  border-right: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+}
+
+.sidebarHeader {
+  padding: 32px 24px;
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.03) 100%);
+}
+
+.sidebarHeader h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sidebarNav {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.navItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.navItem:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.navItem.active {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  box-shadow: 0 4px 12px -4px rgba(99, 102, 241, 0.3);
+}
+
+.sidebarFooter {
+  padding: 16px;
+  border-top: 2px solid var(--border-color);
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: none;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Main Content */
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.contentHeader {
+  padding: 24px 32px;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.contentHeader h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.adminBadge {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Overview */
+.overview {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.statIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.statContent h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.statContent p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.recentActivity {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border-color);
+}
+
+.recentActivity h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface-hover);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.activityItem:hover {
+  background: var(--border-color);
+}
+
+.activityItem div {
+  flex: 1;
+}
+
+.activityItem p {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.activityItem span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Users Tab */
+.usersTab {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.tableHeader {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--surface);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.searchBar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: transparent;
+}
+
+.tableContainer {
+  background: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border-color);
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dataTable thead {
+  background: var(--surface-hover);
+}
+
+.dataTable th {
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.dataTable td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.dataTable tbody tr {
+  transition: background 0.2s ease;
+}
+
+.dataTable tbody tr:hover {
+  background: var(--surface-hover);
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.statusBadge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusBadge.online {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.statusBadge.offline {
+  background: rgba(148, 163, 184, 0.15);
+  color: #64748b;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.actionBtn {
+  padding: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionBtn:hover {
+  background: var(--surface-hover);
+  transform: scale(1.1);
+}
+
+/* Messages & Activity Tabs */
+.messagesTab,
+.activityTab {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.messagesTab .tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.messagesTab .tableHeader h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--surface);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  min-width: 250px;
+}
+
+.searchBox input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border-color);
+}
+
+.table thead {
+  background: var(--surface-hover);
+}
+
+.table th {
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: var(--surface-hover);
+}
+
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.comingSoon p {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Activity Grid */
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.activityCard {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--border-color);
+}
+
+.activityCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--background);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.activityItem:hover {
+  background: var(--surface-hover);
+}
+
+.activityCount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Type Badge */
+.typeBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  color: white;
+}
+
+.messageContent {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .activityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .messagesTab,
+  .activityTab,
+  .usersTab {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .adminContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid var(--border-color);
+    height: auto;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .messagesTab,
+  .activityTab,
+  .usersTab,
+  .overview {
+    padding: 16px;
+  }
+
+  .contentHeader {
+    padding: 16px 20px;
+  }
+
+  .contentHeader h1 {
+    font-size: 20px;
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+  }
+
+  .table {
+    font-size: 13px;
+    min-width: 600px;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 16px;
+  }
+
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .searchBox {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .messagesTab .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .messagesTab .tableHeader h3 {
+    font-size: 18px;
+  }
+
+  .activityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard {
+    padding: 16px;
+  }
+
+  .statIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .statContent h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebarHeader {
+    padding: 20px 16px;
+  }
+
+  .sidebarHeader h2 {
+    font-size: 18px;
+  }
+
+  .navItem {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .userCell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .userAvatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .messagesTab .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fileViewerModal {
+    padding: 10px;
+  }
+
+  .fileViewerContent {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .deleteModalContent {
+    padding: 20px;
+    margin: 20px;
+  }
+}

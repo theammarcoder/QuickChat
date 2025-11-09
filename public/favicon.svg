@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0070f3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a8ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Chat Bubble -->
+  <path d="M 22 11 C 22 9 20.5 7.5 18.5 7.5 L 11.5 7.5 C 9.5 7.5 8 9 8 11 L 8 16 C 8 18 9.5 19.5 11.5 19.5 L 13.5 19.5 L 15 22 L 16.5 19.5 L 18.5 19.5 C 20.5 19.5 22 18 22 16 L 22 11 Z" fill="white"/>
+  
+  <!-- Message Lines -->
+  <line x1="11" y1="12" x2="17" y2="12" stroke="#0070f3" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="11" y1="15" x2="19" y2="15" stroke="#0070f3" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

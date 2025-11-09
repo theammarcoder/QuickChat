@@ -1,0 +1,39 @@
+{
+  "name": "QuickChat - Real-Time Messaging",
+  "short_name": "QuickChat",
+  "description": "Modern real-time messaging platform for seamless communication",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0070f3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["social", "communication"],
+  "shortcuts": [
+    {
+      "name": "New Chat",
+      "short_name": "New Chat",
+      "description": "Start a new conversation",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

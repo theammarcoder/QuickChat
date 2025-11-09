@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "MONGODB_URI": "@mongodb_uri",
+    "JWT_SECRET": "@jwt_secret",
+    "NEXT_PUBLIC_API_URL": "@next_public_api_url",
+    "NODE_ENV": "production"
+  }
+}

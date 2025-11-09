@@ -1,0 +1,27 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradient1)"/>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0070f3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a8ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Chat Bubble Main -->
+  <path d="M 140 80 C 140 62 126 48 108 48 L 68 48 C 50 48 36 62 36 80 L 36 100 C 36 118 50 132 68 132 L 78 132 L 88 145 L 98 132 L 108 132 C 126 132 140 118 140 100 L 140 80 Z" fill="url(#gradient2)"/>
+  
+  <!-- Chat Bubble Accent -->
+  <path d="M 164 95 C 164 82 154 72 142 72 L 122 72 C 122 72 122 100 122 108 C 122 120 130 128 142 128 L 148 128 L 154 136 L 160 128 L 164 128 C 164 128 164 108 164 95 Z" fill="white" opacity="0.9"/>
+  
+  <!-- Message Lines -->
+  <line x1="55" y1="75" x2="105" y2="75" stroke="#0070f3" stroke-width="4" stroke-linecap="round"/>
+  <line x1="55" y1="90" x2="120" y2="90" stroke="#0070f3" stroke-width="4" stroke-linecap="round"/>
+  <line x1="55" y1="105" x2="95" y2="105" stroke="#0070f3" stroke-width="4" stroke-linecap="round"/>
+</svg>
