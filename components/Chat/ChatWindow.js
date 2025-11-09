@@ -404,9 +404,19 @@ export default function ChatWindow({ conversation, currentUser }) {
       formData.append('file', file);
       formData.append('conversationId', conversation._id);
 
-      const response = await api.post('/api/upload', formData, {
+      // Use cloud storage for production/Vercel, local storage for development
+      const uploadEndpoint = process.env.NODE_ENV === 'production' || process.env.VERCEL 
+        ? '/api/upload-cloud' 
+        : '/api/upload';
+      
+      const response = await api.post(uploadEndpoint, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
+      
+      // Immediately show the uploaded file (refresh messages)
+      setTimeout(() => {
+        loadMessages();
+      }, 500);
 
       // Determine message type from MIME type
       let messageType = 'file';
