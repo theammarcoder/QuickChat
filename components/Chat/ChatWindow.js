@@ -44,6 +44,12 @@ export default function ChatWindow({ conversation, currentUser }) {
         socket.on('message_deleted', handleMessageDeleted);
       }
 
+      // Polling fallback for Vercel (Socket.IO not supported on serverless)
+      // Check for new messages every 3 seconds
+      const pollingInterval = setInterval(() => {
+        loadMessages();
+      }, 3000);
+
       return () => {
         if (socket) {
           socket.off('new_message', handleNewMessage);
@@ -55,6 +61,7 @@ export default function ChatWindow({ conversation, currentUser }) {
           socket.off('reaction_added', handleReactionAdded);
           socket.off('message_deleted', handleMessageDeleted);
         }
+        clearInterval(pollingInterval);
       };
     }
   }, [conversation?._id]);
@@ -269,7 +276,22 @@ export default function ChatWindow({ conversation, currentUser }) {
     setMessages(prev => [...prev, tempMessage]);
 
     // Send via socket
-    socket.emit('send_message', messageData);
+    if (socket && socket.connected) {
+      socket.emit('send_message', messageData);
+    } else {
+      // Fallback: Send via API if socket not available (Vercel)
+      try {
+        await api.post('/api/messages/send', {
+          conversationId: conversation._id,
+          receiverId: conversation.isGroup ? null : conversation.participants.find(p => p._id !== currentUser._id)?._id,
+          content: newMessage.trim(),
+          messageType: 'text'
+        });
+        await loadMessages(); // Reload to show the sent message
+      } catch (error) {
+        toast.error('Failed to send message');
+      }
+    }
   };
 
   const handleEmojiClick = (emojiData) => {
