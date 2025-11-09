@@ -44,12 +44,6 @@ export default function ChatWindow({ conversation, currentUser }) {
         socket.on('message_deleted', handleMessageDeleted);
       }
 
-      // Polling fallback for Vercel (Socket.IO not supported on serverless)
-      // Check for new messages every 3 seconds
-      const pollingInterval = setInterval(() => {
-        loadMessages();
-      }, 3000);
-
       return () => {
         if (socket) {
           socket.off('new_message', handleNewMessage);
@@ -61,7 +55,6 @@ export default function ChatWindow({ conversation, currentUser }) {
           socket.off('reaction_added', handleReactionAdded);
           socket.off('message_deleted', handleMessageDeleted);
         }
-        clearInterval(pollingInterval);
       };
     }
   }, [conversation?._id]);
